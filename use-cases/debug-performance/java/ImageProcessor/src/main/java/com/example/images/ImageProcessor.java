@@ -3,7 +3,6 @@ package com.example.images;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.io.IOException;
 import java.nio.file.StandardCopyOption;

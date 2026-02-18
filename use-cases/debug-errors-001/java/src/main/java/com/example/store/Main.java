@@ -1,15 +1,15 @@
 // Main.java
+
 package com.example.store;
 
 public class Main {
     public static void main(String[] args) {
+        // Use ShoppingCart from ShoppingCart.java
         ShoppingCart cart = new ShoppingCart();
-
-        cart.addItem(new Product("Laptop", 999.99));
-        cart.addItem(new Product("Mouse", 25.99));
-        cart.addItem(null);  // Adding null here will cause the issue
-        cart.addItem(new Product("Keyboard", 45.99));
-
+        
+        // Example usage
+        cart.addItem(new Product("Milk", 2.99));
+        cart.addItem(new Product("Bread", 1.50));
         cart.checkout();
     }
 }

@@ -25,10 +25,20 @@ public class FactorialCalculator {
      * 
      * @param num The number to calculate factorial for
      * @return The factorial value
+     * @throws IllegalArgumentException if num is negative
      */
     public static int calculateFactorial(int num) {
-        // Missing base case or incorrect recursive call
-        // This will cause infinite recursion
+        // Input validation: reject negative numbers
+        if (num < 0) {
+            throw new IllegalArgumentException("Factorial is not defined for negative numbers");
+        }
+        
+        // Base cases
+        if (num == 0 || num == 1) {
+            return 1;
+        }
+        
+        // Recursive case
         return num * calculateFactorial(num - 1);
     }
 }

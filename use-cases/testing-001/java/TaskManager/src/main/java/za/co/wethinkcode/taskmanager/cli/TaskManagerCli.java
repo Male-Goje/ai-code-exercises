@@ -240,6 +240,7 @@ public class TaskManagerCli {
         }
     }
 
+    @SuppressWarnings("unchecked")
     private static void handleStatsCommand() {
         Map<String, Object> stats = taskManager.getStatistics();
 

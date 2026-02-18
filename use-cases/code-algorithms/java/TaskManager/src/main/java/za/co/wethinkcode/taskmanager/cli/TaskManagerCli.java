@@ -90,8 +90,8 @@ public class TaskManagerCli {
         int priority = args.length > 2 ? Integer.parseInt(args[2]) : 2;
         String dueDate = args.length > 3 ? args[3] : null;
         List<String> tags = args.length > 4 ?
-                Arrays.asList(args[4].split(",")).stream().map(String::trim).collect(Collectors.toList()) :
-                null;
+            Arrays.stream(args[4].split(",")).map(String::trim).collect(Collectors.toList()) :
+            java.util.Collections.emptyList();
 
         String taskId = taskManager.createTask(title, description, priority, dueDate, tags);
         if (taskId != null) {
@@ -242,23 +242,37 @@ public class TaskManagerCli {
 
     private static void handleStatsCommand() {
         Map<String, Object> stats = taskManager.getStatistics();
+        if (stats == null) {
+            System.out.println("No statistics available.");
+            return;
+        }
 
-        System.out.println("Total tasks: " + stats.get("total"));
+        System.out.println("Total tasks: " + (stats.get("total") != null ? stats.get("total") : 0));
 
         System.out.println("By status:");
-        Map<String, Integer> statusCounts = (Map<String, Integer>) stats.get("byStatus");
-        for (Map.Entry<String, Integer> entry : statusCounts.entrySet()) {
-            System.out.println("  " + entry.getKey() + ": " + entry.getValue());
+        Object byStatusObj = stats.get("byStatus");
+        if (byStatusObj instanceof Map) {
+            Map<?, ?> statusCounts = (Map<?, ?>) byStatusObj;
+            for (Map.Entry<?, ?> entry : statusCounts.entrySet()) {
+                System.out.println("  " + entry.getKey() + ": " + entry.getValue());
+            }
+        } else {
+            System.out.println("  None");
         }
 
         System.out.println("By priority:");
-        Map<Integer, Integer> priorityCounts = (Map<Integer, Integer>) stats.get("byPriority");
-        for (Map.Entry<Integer, Integer> entry : priorityCounts.entrySet()) {
-            System.out.println("  " + entry.getKey() + ": " + entry.getValue());
+        Object byPriorityObj = stats.get("byPriority");
+        if (byPriorityObj instanceof Map) {
+            Map<?, ?> priorityCounts = (Map<?, ?>) byPriorityObj;
+            for (Map.Entry<?, ?> entry : priorityCounts.entrySet()) {
+                System.out.println("  " + entry.getKey() + ": " + entry.getValue());
+            }
+        } else {
+            System.out.println("  None");
         }
 
-        System.out.println("Overdue tasks: " + stats.get("overdue"));
-        System.out.println("Completed in last 7 days: " + stats.get("completedLastWeek"));
+        System.out.println("Overdue tasks: " + (stats.get("overdue") != null ? stats.get("overdue") : 0));
+        System.out.println("Completed in last 7 days: " + (stats.get("completedLastWeek") != null ? stats.get("completedLastWeek") : 0));
     }
 
     private static void showHelp(HelpFormatter formatter, Options options) {
@@ -314,16 +328,21 @@ public class TaskManagerCli {
         }
 
         String dueStr = task.getDueDate() != null ?
-                "Due: " + task.getDueDate().format(DateTimeFormatter.ISO_DATE) :
-                "No due date";
+            "Due: " + task.getDueDate().format(DateTimeFormatter.ISO_DATE) :
+            "No due date";
 
-        String tagsStr = !task.getTags().isEmpty() ?
-                "Tags: " + String.join(", ", task.getTags()) :
-                "No tags";
+        String tagsStr = (task.getTags() != null && !task.getTags().isEmpty()) ?
+            "Tags: " + String.join(", ", task.getTags()) :
+            "No tags";
 
-        return statusSymbol + " " + task.getId().substring(0, 8) + " - " + prioritySymbol + " " + task.getTitle() + "\n" +
-                "  " + task.getDescription() + "\n" +
-                "  " + dueStr + " | " + tagsStr + "\n" +
-                "  Created: " + task.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+        String shortId = "unknown";
+        if (task.getId() != null) {
+            shortId = task.getId().length() > 8 ? task.getId().substring(0, 8) : task.getId();
+        }
+
+        return statusSymbol + " " + shortId + " - " + prioritySymbol + " " + task.getTitle() + "\n" +
+            "  " + (task.getDescription() != null ? task.getDescription() : "") + "\n" +
+            "  " + dueStr + " | " + tagsStr + "\n" +
+            "  Created: " + task.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
     }
 }

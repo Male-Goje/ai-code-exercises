@@ -41,6 +41,7 @@ public class TaskManagerTest {
      * in the getStatistics method by initializing counts to zero.
      */
     @Test
+    @SuppressWarnings("unchecked")
     public void testGetStatisticsWithEmptyTaskList() {
         TaskManager taskManager = new TaskManager(test_storage_file);
         Map<String, Object> stats = taskManager.getStatistics();
@@ -205,6 +206,7 @@ public class TaskManagerTest {
      * Verifies that the method returns correct statistics for tasks
      */
     @Test
+    @SuppressWarnings("unchecked")
     public void test_getStatistics_returnsCorrectStatistics() {
         // Create a TaskManager with a temporary storage path
         TaskManager taskManager = new TaskManager(test_storage_file);
@@ -346,6 +348,7 @@ public class TaskManagerTest {
      * Verifies that the method returns overdue tasks from storage.
      */
     @Test
+    @SuppressWarnings("unchecked")
     public void test_listTasks_returnsOverdueTasks() {
         // Arrange
         TaskStorage mockStorage = mock(TaskStorage.class);
@@ -501,7 +504,6 @@ public class TaskManagerTest {
      */
     @Test
     public void test_removeTagFromTask_whenTaskIsNullOrTagCannotBeRemoved() {
-        TaskStorage mockStorage = new TaskStorage(test_storage_file);
         TaskManager taskManager = new TaskManager(test_storage_file);
 
         // Attempt to remove a tag from a non-existent task
@@ -583,7 +585,6 @@ public class TaskManagerTest {
      */
     @Test
     public void test_updateTaskStatus_nonExistentTaskToDone() {
-        TaskStorage mockStorage = new TaskStorage(test_storage_file);
         TaskManager taskManager = new TaskManager(test_storage_file);
 
         String nonExistentTaskId = "non_existent_task_id";

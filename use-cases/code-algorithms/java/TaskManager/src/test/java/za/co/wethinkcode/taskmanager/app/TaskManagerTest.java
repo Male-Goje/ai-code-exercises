@@ -54,6 +54,7 @@ public class TaskManagerTest {
             assertEquals(0, statusCounts.get(status.getValue()));
         }
 
+        @SuppressWarnings("unchecked")
         Map<Integer, Integer> priorityCounts = (Map<Integer, Integer>) stats.get("byPriority");
         for (TaskPriority priority : TaskPriority.values()) {
             assertEquals(0, priorityCounts.get(priority.getValue()));
@@ -220,12 +221,14 @@ public class TaskManagerTest {
         // Assert the results
         assertEquals(3, stats.get("total"));
 
+        @SuppressWarnings("unchecked")
         Map<String, Integer> statusCounts = (Map<String, Integer>) stats.get("byStatus");
         assertEquals(3, statusCounts.get(TaskStatus.TODO.getValue()));
         assertEquals(0, statusCounts.get(TaskStatus.IN_PROGRESS.getValue()));
         assertEquals(0, statusCounts.get(TaskStatus.REVIEW.getValue()));
         assertEquals(0, statusCounts.get(TaskStatus.DONE.getValue()));
 
+        @SuppressWarnings("unchecked")
         Map<Integer, Integer> priorityCounts = (Map<Integer, Integer>) stats.get("byPriority");
         assertEquals(1, priorityCounts.get(TaskPriority.LOW.getValue()));
         assertEquals(1, priorityCounts.get(TaskPriority.MEDIUM.getValue()));
@@ -356,6 +359,7 @@ public class TaskManagerTest {
             }
         };
 
+        @SuppressWarnings("unchecked")
         List<Task> overdueTasks = mock(List.class);
         when(mockStorage.getOverdueTasks()).thenReturn(overdueTasks);
 
@@ -501,7 +505,6 @@ public class TaskManagerTest {
      */
     @Test
     public void test_removeTagFromTask_whenTaskIsNullOrTagCannotBeRemoved() {
-        TaskStorage mockStorage = new TaskStorage(test_storage_file);
         TaskManager taskManager = new TaskManager(test_storage_file);
 
         // Attempt to remove a tag from a non-existent task
@@ -583,7 +586,6 @@ public class TaskManagerTest {
      */
     @Test
     public void test_updateTaskStatus_nonExistentTaskToDone() {
-        TaskStorage mockStorage = new TaskStorage(test_storage_file);
         TaskManager taskManager = new TaskManager(test_storage_file);
 
         String nonExistentTaskId = "non_existent_task_id";

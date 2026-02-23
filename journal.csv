@@ -1,0 +1,120 @@
+prompt_number,prompt_title,summary,errors,improvements
+1,Knowing Where to Start (junior dev),Validate project structure,identify techs and entry points,None,Add README per language and run examples
+2,Find feature code,Search tips and dirs,identify auth-related files,None,Add CONTRIBUTING note about feature locations
+3,Domain model senior review,Entity relationships and business terms,None,Add model docs clarifying invariants
+4,Understand specific feature (assignment),Execution flow and interactions,None,Centralize assignment rules in service layer
+5,Pair programmer guided questions,Acknowledge understanding and ask discovery questions,None,Add docstring for create_task()
+6,Data flow for create task,Full path from request to persistence,None,Add request/response examples and integration test
+7,Decipher algorithm (scheduling),Breakdown, example, optimizations,None,Add unit tests and heap optimization
+8,Rename poorly named code,Suggest better names and pseudocode,None,Add tests and typed signatures
+9,Untangle nested logic,Refactor plan and tests,None,Add idempotency checks and central retry policy
+10,Docstring generation for calculate_priority,Full docstring with examples,None,Add type annotations
+11,API endpoint docs (POST /tasks),Request/response schemas and examples,None,Add JSON Schema/Pydantic and error body examples
+12,OpenAPI conversion,OpenAPI YAML with paths and schemas,None,Add pagination and full status enumeration
+13,Developer API guide,Getting started, auth, examples,None,Provide Postman collection and quickstart script
+14,Comprehensive README,Project overview and run instructions,None,Add badges and architecture diagram
+15,Step-by-step integration test guide,Run tests and troubleshooting,None,Provide sample .env and seed script
+16,FAQ for contributors,Common questions and run guides,None,Link recurring issues to GitHub
+17,Trace error (TypeError),Explain root cause and fixes,None,Add null-checks and explicit 400s
+18,Diagnose DB timeouts,Root causes and mitigations,None,Add health checks and circuit breaker
+19,Dependency errors (Node),Conflict detection and fixes,None,Pin versions and add CI safety checks
+20,Performance bottleneck (sorting),Cache/sort-on-write and profiler suggestions,None,Add benchmarks and CI perf budgets
+21,What to test,Testing checklist and priorities,None,Provide concrete example inputs/outputs
+22,Testing plan (batch),Unit/integration/e2e plan,None,Add test data generators and CI matrix
+23,Improve a test,Make assertions on contract not impl details,None,Convert flakey tests to isolated unit tests
+24,TDD guidance,First failing test and minimal implementation,None,Include concrete test example and minimal code
+25,Refactor readability,Extract helpers and consolidate validation,None,Propose PR with helper and tests
+26,Break complex function,Decompose into smaller functions,None,Refactor incrementally with tests
+27,Extract responsibility,Create validate_request() and tests,None,Add schema/type annotations
+28,Simplify conditionals,Extract branches and apply Strategy pattern,None,Document fallback behavior
+29,Rename vars for readability,Suggest descriptive names,None,Run linter/rename and add tests
+30,Add comments and docs,Suggest docstrings and inline comments,None,Add developer note explaining trade-offs
+31,Design patterns suggestion,Strategy/Factory/Adapter recommendations,None,Provide small Strategy example
+32,Refactor to Strategy,Implement notification strategies,None,Sketch migration plan
+33,Architecture improvements,Event-driven + Command + Circuit Breaker,None,Provide rollout and monitoring plan
+34,Idiomatic JS suggestions,Use async/await and built-ins,None,Offer before/after snippets
+35,Code quality review,Identify smells and fixes,None,Add explicit error propagation and tests
+36,Explain Java Streams,Map/filter/reduce examples,None,Provide practice project
+37,Java basics for Python devs,Class structure and differences,None,Add side-by-side code comparisons
+38,FastAPI basics,Hello world + Pydantic example,None,Suggest CI uvicorn checks
+39,FastAPI validation,Pydantic model and validators,None,Recommend read vs write models reuse
+40,FastAPI project structure,Suggested file layout and startup examples,None,Add docker-compose for local dev
+41,Testing plan conversation,Prioritized test checklist (unit/integration/e2e),None,Add fixtures and deterministic time controls
+42,Improve flaky test,Use event-based waits and mocks,None,Add CI stability flags and limits
+43,Code smells detection,Identify duplicates and unclear naming,None,Add linting and automated PR suggestions
+44,Extract validation,Central validators module and migration,None,Add deprecation warnings during rollout
+45,Break large class,Decompose TaskProcessor into focused classes,None,Keep API stable and add integration tests
+46,Add Python typing,Incremental typing plan and mypy in CI,None,Provide codemods and typing guidelines
+47,Static analysis and linters,ESLint/Prettier and flake8/black/isort,None,Add autofix and PR comment bot
+48,DB migration strategy,Backfill script and staged migration,None,Run backfill in batches and verify checksums
+49,Feature flagging,Use feature flags with metrics and kill-switch,None,Add audit log and admin controls
+50,Metrics and tracing,Prometheus + OpenTelemetry plan,None,Create dashboards for latency/error/queue
+51,Security checklist,Dependency and secret scanning,auth checks,None,Add automated CI scans and remediation steps
+52,Performance testing,Define SLAs and run ramp tests,None,Automate benchmarks in CI
+53,Backup and restore,Regular backups and PITR, test restores,None,Document RTO/RPO and test schedule
+54,Onboarding checklist,Repo setup and first tasks,None,Add mentor pairing and walkthrough task
+55,Automate releases,Tag-based pipeline and changelogs,None,Add rollback support and staging
+56,API versioning,URL or header versioning and migration,None,Add compatibility tests
+57,Rate limiting,Token bucket per API key and throttles,None,Add monitoring and per-user quotas
+58,CI/CD improvements,Parallel tests and canary deploys,None,Split pipelines by language
+59,End-to-end tests,Docker compose stack and e2e harness,None,Keep tests deterministic and small
+60,Multi-env deployment,Immutable artifacts and promotion path,None,Add automated smoke tests
+61,Logging standards,JSON logs with trace IDs and context,None,Enforce logger wrapper and schema
+62,Error handling,Classify transient/permanent errors and retries,None,Document retry/backoff policies
+63,Git workflow,Feature branches and PR reviews,None,Add PR checklist template
+64,Contribution guidelines,Coding standards and issue templates,None,Label `good-first-issue` items
+65,Dependency scans,Automated scans and triage,None,Auto-create PRs for minor patches
+66,Data retention,GDRP retention and deletion APIs,None,Add purge jobs and compliance tests
+67,Monitoring and alerting,SLOs, thresholds, runbooks,None,Implement playbooks and on-call rotation
+68,Scale workers,Idempotency and autoscaling triggers,None,Add leader election for single-writer tasks
+69,DB indexing,Index frequent filters and composite indexes,None,Add maintenance plan and trade-offs
+70,Disaster recovery,Runbook and test schedule,None,Run tabletop exercises quarterly
+71,Multi-tenant support,Logical separation and tenancy keys,None,Add per-tenant quotas and billing hooks
+72,Export tasks CSV,Background job + storage + pre-signed URL,None,Add size limits and streaming
+73,Admin CLI,User mgmt, backfill, health checks,None,Add dry-run mode for dangerous commands
+74,Onboard microservice,Contract, tests, CI, staging deploy,None,Provide sample consumer and integration guide
+75,Optimistic concurrency,Version column and 409 conflicts,None,Add SDK helper for retries/conflicts
+76,Soft-delete semantics,`deleted_at` and purge strategy,None,Document unique constraint implications
+77,Audit logging,Immutable audit records with who/when/what,None,Provide admin audit viewer
+78,Tenant-aware throttling,Token buckets by tenant and overrides,None,Expose rate usage metrics per tenant
+79,Schema-less event store,Append-only event store with versioned schemas,None,Provide migration strategy for events
+80,Roadmap and prioritization,Impact vs effort matrix and OKR tie-in,None,Publish roadmap with reprioritization signals
+81,Test-driven mentoring,Guide on first failing test and TDD steps,None,Provide starter test and minimal implementation snippet
+82,Unit coverage review,Identify gaps and recommend targets,None,Add mutation testing for critical modules
+83,Coding exercise for hires,CLI overdue tasks with tests,None,Add grading script and expected outputs
+84,Lightweight SDK design,Typed wrappers with retry/auth,None,Publish sample packages and automate releases
+85,Safe migration scripts,Idempotent backfill and rollout,None,Use batching and resume tokens
+86,Observability refactor,Trace propagation and instrumentation,None,Ensure sampling/privacy-safe traces
+87,Ephemeral PR environments,Per-PR preview stacks and teardown,None,Cache shared components to reduce cost
+88,Graceful worker shutdown,SIGTERM handling and in-flight drain,None,Emit shutdown metrics
+89,Canary deploys,Route small traffic and monitor, None,Automate promotion rules
+90,Minimal downtime migrations,Online changes and dual-read,None,Provide rollback and validation queries
+91,Robust input validation,Central validators and sanitization,None,Add fuzz tests for boundaries
+92,API pagination,Cursors and next tokens,None,Document ordering guarantees
+93,Internationalization,Locale files and formatting,None,Add CI check for translations
+94,Accessibility improvements,ARIA, keyboard navigation, testing,None,Add accessibility checklist in PRs
+95,Plugin system,Plugin interface and sandboxing,None,Provide sample plugins and tests
+96,Code review checklist,Correctness, security, performance,None,Integrate into PR template
+97,Internal API contract,Schemas, error codes, SLAs,None,Add mock server and examples
+98,Incremental legacy refactor,Strangler pattern and interfaces,None,Track KPIs and tech debt
+99,Offline client mode,Caching and sync queues,None,Provide sync diagnostics UI
+100,Performance budget,Latency and memory thresholds,None,Enforce in CI and dashboards
+101,Observability SLIs,Define success and latency SLIs,None,Tie alerts to business impact
+102,Alerting runbook,Actions for elevated error rates,None,Include automated remediation scripts
+103,Multi-region deployment,Replication and failover, None,Provide cost/benefit analysis
+104,A/B experiments,Randomized rollouts and metrics,None,Add experiment tracking
+105,Incident checklist,Triage, mitigation, postmortem,None,Provide templates and blameless process
+106,Migration rollback strategies,Reversible migrations and snapshots,None,Automate pre-checks and validations
+107,Third-party selection,Reliability, cost, compliance,None,Run pilot and include exit strategy
+108,Model evolution docs,Versioning and migration notes,None,Maintain schema change log
+109,Auth upgrades,Session -> JWT migration steps,None,Provide token rotation and revoke plan
+110,Zero-downtime deploys,Rolling updates and readiness probes,None,Add health checks and canary policies
+111,Client error handling,Typed errors and retries,None,Provide helper utilities
+112,Encryption strategy,TLS + KMS + rotation,None,Automate cert monitoring and rotation
+113,GDPR logging rules,Redact/hash PII in logs,None,Add log leak scanning tools
+114,Routine maintenance runbook,Schedule and verification steps,None,Automate safe maintenance tasks
+115,Migration auditing,Checksums and reconciliation,None,Tooling to resume failed batches
+116,SDK versioning,Semantic versioning and deprecation,None,Auto changelog and migration notes
+117,Analytics schema,Event names, properties, versioning,None,Provide event catalog and validation
+118,Safe config defaults,Sane defaults and validation,None,Add config validation startup checks
+119,Roadmap finalization,Prioritized backlog with owners,None,Publish roadmap and solicit feedback
